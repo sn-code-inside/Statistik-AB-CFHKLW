@@ -13,8 +13,7 @@ daten <- read.table(file="ifo_zeitreihen.txt", header=TRUE, dec=".")
 # ########################### Bauhauptgewerbe ##################################
 
 # Umwandlung in ein Zeitreihenobjekt
-bau.series <- ts(daten$Bauhauptgewerbe_Kapazitaetsauslastung, 
-                 start = c(1991, 1), frequency=12)
+bau.series <- ts(daten$Bau, start = c(1991, 1), frequency=12)
 
 # Starre Saisonfigur
 zerlegung.ifo.bau <- stl(bau.series, s.window="periodic")
@@ -53,8 +52,7 @@ dev.off()
 # ########################## Geschäftsklimaindex ###############################
 
 # Umwandlung in ein Zeitreihenobjekt
-gki.series <- ts(daten$Gewerbliche_Wirtschaft_Gki, 
-                 start = c(1991, 1), frequency=12)
+gki.series <- ts(daten$Gki, start = c(1991, 1), frequency=12)
 
 # Starre Saisonfigur
 zerlegung.ifo.gki <- stl(gki.series, s.window="periodic")
