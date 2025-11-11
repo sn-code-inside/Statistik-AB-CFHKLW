@@ -19,6 +19,9 @@ daten$lognmqm <- log(daten$nmqm)
 daten <- daten[order(daten$nm, decreasing = TRUE), ] 
 daten.20 <- daten[21:nrow(daten),]
 
+# Maximal 8 Nachkommastellen damit nachfolgender Regressionsoutput
+# übersichtlicher wird
+options(digits=8)
 
 ################################ AUFGABE a) ####################################
 
