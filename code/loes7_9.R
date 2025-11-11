@@ -1,6 +1,9 @@
-##############################################################
+################################################################################
 # Lösung Aufgabe 7.9 
-##############################################################
+################################################################################
+
+
+############################### VORBEREITUNG ###################################
 
 # Lösche alle möglicherweise vorhandenen Objekte im Arbeitsbereich
 rm(list = ls())
@@ -13,34 +16,32 @@ set.seed(5671345)
 x <- seq(-3, 3, length = 30)
 z.dichte <- dnorm(x)
 
-# Zunächst exemplarisch für n=100
+
+####################### Zunächst exemplarisch für n=100 ########################
 
 # Ziehe n=100 Zufallszahlen aus N(0,1) Verteilung 
 n <- 100
 s <- rnorm(n)
 
 # Zeichne Kerndichteschätzer und Dichte in einer Grafik
-plot(density(s), xlim=c(-3,3), ylim=c(0,1), lty=1,  
-main="Kerndichte plus Verteilungsdichte der N(0,1)")
+plot(density(s), xlim=c(-3,3), ylim=c(0,1), lty=1, 
+     main=paste("n=",n), xlab="", ylab="Dichte")
 lines(x, z.dichte,lwd = 1,lty=2)
-legend(-2.4, 0.8, legend=c("Kerndichte","Dichte der N(0,1)"),
+legend(-2.8, 1, legend=c("Kerndichte","Dichte der N(0,1)"),
        lty=1:2, cex=0.8)
 
-
-# Jetzt allgemeinere Funktion für beliebigen Stichprobenumfang n
+######## Jetzt allgemeinere Funktion für beliebigen Stichprobenumfang n ########
 
 plot.dichte <- function(n){
   
   s <- rnorm(n=n)
   
-  plot(density(s), xlim=c(-3,3), ylim=c(0,1), 
-       main="Kerndichte plus Verteilungsdichte der N(0,1)",
-       lty=1)
+  plot(density(s), xlim=c(-3,3), ylim=c(0,1),lty=1, 
+       main=paste("n=",n), xlab="",ylab="Dichte")
   lines(x, z.dichte, lwd = 1, lty=2)
-  legend(-2.4, 0.8, legend=c("Kerndichte","Dichte der N(0,1)"),
+  legend(-2.8, 1, legend=c("Kerndichte","Dichte der N(0,1)"),
          lty=1:2, cex=0.8)
 }
-
 
 # Anwendung der Funktion für verschiedene Stichprobenumfänge
 plot.dichte(10)

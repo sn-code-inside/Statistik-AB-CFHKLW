@@ -1,7 +1,9 @@
-##############################################################
+################################################################################
 # Lösung Aufgabe 7.12
-##############################################################
+################################################################################
 
+
+############################### VORBEREITUNG ###################################
 
 # Lösche alle möglicherweise vorhandenen Objekte im Arbeitsbereich
 rm(list = ls())
@@ -9,25 +11,29 @@ rm(list = ls())
 # Für die Reproduzierbarkeit setzen wir einen Seed
 set.seed(3134561)
 
-# Zunächst Illustration im Fall n=100, pi=0.4
+
+################# Zunächst Illustration im Fall n=100, pi=0.4 ##################
+
 pi <- 0.4
 n<-100
 
 # Erzeuge 1000 Zufallszahlen aus einer B(n=100,pi=0.4) Verteilung
 Hn<-rbinom(1000, size = n, prob = pi)
-# Bilde die standardisierten Summen
+# Bilde die standardisierten Häufigkeiten
 stand_Hn<-(Hn-n*pi)/sqrt(n*pi*(1-pi))
 
-# Zeichne das Histogramm der 1000 standardisierten Summen
+# Zeichne das Histogramm der 1000 standardisierten Häufigkeiten
 # freq=FALSE zeichnet das Histogramm mit relativen Häufigkeiten anstatt mit
 # absoluten Häufigkeiten
 # Mit Hilfe von paste0 können numerische Variablen im Titel verwendet werden
 hist(stand_Hn,freq=FALSE,main=paste0("n=", n, ", pi=", pi),
-xlab="standardisierte Summe", ylab="Dichte",xlim=c(-4,4),ylim=c(0,0.5))
+xlab="standardisierte Häufigkeiten", ylab="Dichte",xlim=c(-4,4),ylim=c(0,0.5))
 # Füge der Grafik die Dichte der Standardnormalverteilung hinzu im Bereich
 # -4 bis 4
-curve( dnorm(x), from=-4, to=4, add=T, col="red")
+curve(dnorm(x), from=-4, to=4, add=T)
 
+
+############################## Beliebiges pi und n #############################
 
 # Jetzt schreiben wir eine kleine Funktion 'demoivre' für beliebiges pi und n
 demoivre <- function(n,pi){
@@ -35,8 +41,8 @@ demoivre <- function(n,pi){
   Hn<-rbinom(1000, size = n, prob = pi)
   stand_Hn<-(Hn-n*pi)/sqrt(n*pi*(1-pi))
   hist(stand_Hn,freq=FALSE, main=paste0("n=", n, ", pi=", pi),
-  xlab="standardisierte Summe", ylab="Dichte",xlim=c(-4,4), ylim=c(0,0.5))
-  curve( dnorm(x), from=-4, to=4, add=T, col="red")
+  xlab="standardisierte Häufigkeiten", ylab="Dichte",xlim=c(-4,4), ylim=c(0,0.5))
+  curve( dnorm(x), from=-4, to=4, add=T)
   
 }
 
@@ -82,6 +88,4 @@ for (j in 1:length(n)){
   demoivre(n[j],0.04)
   dev.off()
 }
-
-
 
