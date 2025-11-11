@@ -18,7 +18,8 @@ daten <- read.table(file="mietspiegel2015.txt", header=TRUE, dec=".")
 # Den pdf Befehl nur ausführen wenn Grafik als pdf gespeichert werden soll,
 # ansonsten diesen Befehl auslassen!
 pdf("loes3_8_streu1.pdf")
-plot(daten$bj, daten$nmqm,ylab = "Nettomiete pro qm", xlab = "Baujahr")
+plot(daten$bj, daten$nmqm,ylab = "Nettomiete pro qm", 
+     xlab = "Baujahr")
 dev.off()
 
 
