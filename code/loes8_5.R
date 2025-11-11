@@ -77,6 +77,13 @@ image(x,y,z)
 par(cex=1)
 dev.off()
 
+# Alternativ image Plot in Schwarz Weiß
+pdf("loes_8_5_image_1_sw.pdf")
+par(cex=1.2)
+image(x,y,z,col = gray.colors(50))
+par(cex=1)
+dev.off()
+
 
 ############################### ZWEITE DICHTE ##################################
 mu1 <- 0
@@ -111,9 +118,15 @@ image(x,y,z)
 par(cex=1)
 dev.off()
 
+# Alternativ image Plot in Schwarz Weiß
+pdf("loes_8_5_image_2_sw.pdf")
+par(cex=1.2)
+image(x,y,z,col = gray.colors(50))
+par(cex=1)
+dev.off()
+
 
 ################################ DRITTE DICHTE #################################
-
 mu1 <- 0
 mu2 <- 0
 sigma1 <- 1
@@ -143,6 +156,13 @@ dev.off()
 pdf("loes_8_5_image_3.pdf")
 par(cex=1.2)
 image(x,y,z)
+par(cex=1)
+dev.off()
+
+# Alternativ image Plot in Schwarz Weiß
+pdf("loes_8_5_image_3_sw.pdf")
+par(cex=1.2)
+image(x,y,z,col = gray.colors(50))
 par(cex=1)
 dev.off()
 
@@ -177,6 +197,13 @@ dev.off()
 pdf("loes_8_5_image_4.pdf")
 par(cex=1.2)
 image(x,y,z)
+par(cex=1)
+dev.off()
+
+# Alternativ image Plot in Schwarz Weiß
+pdf("loes_8_5_image_4_sw.pdf")
+par(cex=1.2)
+image(x,y,z,col = gray.colors(50))
 par(cex=1)
 dev.off()
 
