@@ -1,4 +1,4 @@
-Zeit	Bauhauptgewerbe_Kapazitätsauslastung	Gewerbliche_Wirtschaft_Gki
+Zeit	Bau	Gki
  01/1991	55.2	109.9
  02/1991	53	109.7
  03/1991	64.1	108.5
