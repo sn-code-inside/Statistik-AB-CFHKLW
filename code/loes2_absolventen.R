@@ -1,4 +1,8 @@
 
+# Lösche alle möglicherweise vorhandenen Objekte im Arbeitsbereich
+rm(list = ls())
+
+
 daten.roh <- read.table(file="sozio.txt", skip=1)
 
 daten1 <- daten.roh[1:18, 1:6]
@@ -15,9 +19,16 @@ daten$Note <- factor(daten$Note, levels=c(1,2,3,4,5))
 
 abs.h <- table(daten$Note)
 rel.h <- abs.h / sum(abs.h) 
+rel.h
 
-
+# ACHTUNG: 
+# Falls Ausgabe auf Bildschirm gewünscht (anstelle Grafik im pdf Format),
+# dann nur den 'barplot' Befehl ausführen
+pdf("loes2_absolventen_bp_note.pdf")
 barplot(rel.h, xlab="Säulendiagramm des Merkmals Note", ylab="relative H.")
+dev.off()
+
+
 
 rel.perc <- c("5.6","61.1","30.6", "0.0", "2.8" )
 

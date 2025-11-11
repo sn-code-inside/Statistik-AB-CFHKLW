@@ -13,7 +13,7 @@ rm(list = ls())
 library(moments)
 
 # Daten einlesen und im data.frame 'daten' speichern
-daten <- read.table(file="mietspiegel2015.txt", header=TRUE, dec=".")
+daten<-read.table(file="mietspiegel2015.txt",header=TRUE,dec=".")
 
 
 ################################ AUFGABE a) ####################################
