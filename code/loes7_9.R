@@ -76,7 +76,7 @@ dev.off()
 
 pdf("loes7_9_n1000.pdf")
 par(cex=1.5)
-plot.dichte(10)
+plot.dichte(1000)
 dev.off()
 
 pdf("loes7_9_n10000.pdf")

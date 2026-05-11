@@ -27,11 +27,12 @@ print(h)
 # Falls Ausgabe auf Bildschirm gewünscht (anstelle Grafik im pdf Format),
 # dann nur den 'barplot' Befehl ausführen
 pdf("loes2_8_barplot.pdf")
+par(cex=1.5)
 barplot(h, ylim=c(0,1200), main="Säulendiagramm für die Variable rooms", 
         ylab="absolute Häufigkeit")
 dev.off()
 
-
+  
 ################################ AUFGABE b) ####################################
 
 # Fünf-Punkte-Zusammenfassung des Baujahrs 'bj'
@@ -313,7 +314,7 @@ dev.off()
 # dann nur die 'hist' und 'lines' Befehle ausführen
 pdf("loes2_8_hist_nmqm_kdens.pdf")
 par(cex=1.5)
-hist(daten$nmqm, main=" ", xlab="Nettomiete", ylab="Dichte", freq=FALSE)
+hist(daten$nmqm, main=" ", xlab="Nettomiete pro qm", ylab="Dichte", freq=FALSE)
 lines(density(daten$nmqm),col="black")
 par(cex=1)
 dev.off()
@@ -324,7 +325,7 @@ dev.off()
 # dann den 'pdf' und 'dev.off()' Befehl weglassen.
 pdf("loes2_8_hist_nmqm_gauss.pdf")
 par(cex=1.5)
-hist(daten$nmqm, main=" ", xlab="Nettomiete", ylab="Dichte", freq=FALSE)
+hist(daten$nmqm, main=" ", xlab="Nettomiete pro qm", ylab="Dichte", freq=FALSE)
 mu <- mean(daten$nmqm)
 sigma <- sd(daten$nmqm)
 curve(dnorm(x,mean=mu,sd=sigma),from=mu - 4*sigma,to=mu + 4*sigma,add=TRUE)

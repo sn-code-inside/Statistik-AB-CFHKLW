@@ -67,7 +67,7 @@ wkeiten<- dbinom(werte, size = n, prob = p)
 pdf("loes7_8_barplot_bsp2_2.pdf")
 par(cex=1.5)
 barplot(wkeiten, names.arg=werte, xlab="Anzahl Erfolge", 
-ylab="Wahrscheinlichkeit")
+ylab="Wahrscheinlichkeit",ylim=c(0,0.08))
 par(cex=1)
 dev.off()
 
@@ -104,9 +104,8 @@ plot.vergleich <- function(n,p) {
   alle_werte <- as.character(0:n)
   relh_gesamt <- setNames(rep(0, length(alle_werte)), alle_werte)
   relh_gesamt[names(relh)] <- relh
-  plot(alle_werte,relh_gesamt,col="black", 
+  plot(alle_werte,relh_gesamt,col="black", main = paste("n =", n), 
        xlab="Anzahl Erfolge", ylab="Relative Häufigkeit / W.keit")
-  
   werte <- 0:n
   wkeiten<- dbinom(werte, size = n, prob = 0.5)
   points(alle_werte,wkeiten,col="grey",xlab="Anzahl Erfolge", ylab="Wahrscheinlichkeit")
